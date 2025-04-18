@@ -14,7 +14,7 @@ function PostPreview({ generatedPost, imageUrl, onPost }) {
         <img
           src={imageUrl}
           alt="Generated"
-          className="w-full h-40 object-cover rounded-xl shadow-md mb-4"
+          className="w-full h-full object-cover rounded-xl shadow-md mb-4"
         />
       )}
 

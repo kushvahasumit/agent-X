@@ -11,12 +11,12 @@ router.post('/',async (req,res)=>{
     }
 
     try {
-      const post = await generateGeminiPost(topic);
+      // const post = await generateGeminiPost(topic);
+      // const image = await generateGeminiImage(topic); 
 
-      console.log("my post", post);
-      const image = await generateGeminiImage(topic); 
-      console.log("my image", image);
-      res.json({ image });
+      // console.log("my post", post);
+      // console.log("my image", image);
+      // res.json({post, image });
     } catch (error) {
       console.error("Gemini Error:", error);
       res.status(500).json({ error: "Something went wrong with Gemini API" });

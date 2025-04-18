@@ -1,6 +1,7 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import * as fs from "node:fs";
 import dotenv from "dotenv";
+import path from "path"
 dotenv.config();
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
@@ -30,7 +31,7 @@ export async function generateGeminiPost(topic) {
 
 export async function generateGeminiImage(
   prompt,
-  outputPath = "gemini-generated-image.png"
+  outputPath  = path.join("public/images", "gemini-generated-image.png")
 ) {
   try { 
     const imagePrompt = `Create an engaging visual representation of  ${prompt} as a meme or funny content`;
@@ -64,7 +65,11 @@ export async function generateGeminiImage(
       throw new Error("No image was generated");
     }
 
-    return { success: true, imagePath: outputPath };
+    return {
+      success: true,
+      imagePath: outputPath,
+      imageUrl: `http://localhost:4000/images/gemini-generated-image.png`,
+    };
   } catch (error) {
     console.error("Error generating image:", error.message);
     return { success: false, error: error.message };
