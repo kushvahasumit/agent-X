@@ -38,12 +38,12 @@ function App() {
       const data = await response.json();
       console.log("my data", data);
       console.log(data.post);
-      // console.log(data.image.imagePath)
-      // console.log(data.image.imageUrl);
+      console.log(data.image.imagePath)
+      console.log(data.image.imageUrl);
 
       setGeneratedPost(data.post || "No post generated...");
       setEditablePost(data.post || "");
-      // setImageUrl(data.image.imageUrl || "Sorry img is not avilable...");
+      setImageUrl(data.image.imageUrl || "Sorry img is not avilable...");
     } catch (error) {
       console.error("Error generating post:", error);
       setGeneratedPost("Failed to generate post.");

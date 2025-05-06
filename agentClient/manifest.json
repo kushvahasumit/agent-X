@@ -1,10 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "AgentBinod Extension",
+  "name": "Agent X",
   "version": "1.0.0",
   "description": "A Chrome extension with React, Vite, and Tailwind CSS",
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "agentX.png",
+      "48": "agentX.png",
+      "128": "agentX.png"
+    }
+  },
+  "icons": {
+    "16": "agentX.png",
+    "48": "agentX.png",
+    "128": "agentX.png"
   },
   "permissions": ["storage"]
 }

@@ -21,13 +21,13 @@ function PostPreview({ generatedPost,editablePost,setEditablePost, imageUrl, onP
         <Pencil className="absolute bottom-2 right-2 m-4 h-5 w-5 text-gray-400 pointer-events-none" />
       </div>
 
-      {/* {imageUrl && (
+      {imageUrl && (
         <img
           src={imageUrl}
           alt="Generated"
           className="w-full h-full object-cover rounded-xl shadow-md mb-4"
         />
-      )} */}
+      )}
 
       <button
         onClick={() => onPost(editablePost)}
