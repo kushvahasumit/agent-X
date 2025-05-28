@@ -12,7 +12,7 @@ function App() {
   const [xUrl, setXurl] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
-  console.log("my edit post", editablePost);
+  const [checkFilter, setCheckFilter] = useState({ text: true, image: true });
 
   useEffect(() => {
     setEditablePost(generatedPost || "");
@@ -36,10 +36,9 @@ function App() {
       });
 
       const data = await response.json();
-      console.log("my data", data);
-      console.log(data.post);
-      console.log(data.image.imagePath)
-      console.log(data.image.imageUrl);
+      
+      localStorage.setItem("my post", data.post);
+      localStorage.setItem("my IMG", data.image.imageUrl);
 
       setGeneratedPost(data.post || "No post generated...");
       setEditablePost(data.post || "");
@@ -64,6 +63,7 @@ function App() {
         body: JSON.stringify({
           content: editablePost,
           imagePath: "public/images/gemini-generated-image.png",
+          filter: checkFilter,
         }),
       });
 
@@ -81,6 +81,41 @@ function App() {
     <div className="w-[360px] min-h-[480px] bg-gradient-to-br from-black to-gray-700 text-white p-4 rounded-2xl shadow-lg font-sans">
       <Header />
       <TopicInput topic={topic} setTopic={setTopic} />
+
+      <div className="mb-4 flex items-center gap-6">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            name="text"
+            checked={checkFilter?.text}
+            onChange={(e) =>
+              setCheckFilter((prev) => ({
+                ...prev,
+                text: e.target.checked,
+              }))
+            }
+            className="appearance-none w-4 h-4 rounded-full border-2 border-white checked:bg-white checked:border-white transition duration-150"
+          />
+          <span className="text-sm">Text Only</span>
+        </label>
+
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            name="image"
+            checked={checkFilter?.image}
+            onChange={(e) =>
+              setCheckFilter((prev) => ({
+                ...prev,
+                image: e.target.checked,
+              }))
+            }
+            className="appearance-none w-4 h-4 rounded-full border-2 border-white checked:bg-white checked:border-white transition duration-150"
+          />
+          <span className="text-sm">Image Only</span>
+        </label>
+      </div>
+
       <ActionButtons
         topic={topic}
         loading={isGenerating}
@@ -94,6 +129,7 @@ function App() {
         imageUrl={imageUrl}
         loading={isPosting}
         onPost={handlePost}
+        checkFilter={checkFilter}
       />
 
       {xUrl && (
