@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Agent X",
   "version": "1.0.0",
-  "description": "A Chrome extension with React, Vite, and Tailwind CSS",
+  "description": "Extension that helps you ideate, create, and post trending tweets powered by Gemini AI — all without leaving the page you're on",
   "action": {
     "default_popup": "index.html",
     "default_icon": {

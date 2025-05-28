@@ -8,7 +8,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function generateGeminiPost(topic) {
     try {
-        const prompt = `Write a twitter(x) community post (50-150 characters) about ${topic}. Use a fun, engaging tone with emojis and 1-2 hashtags. Include a call-to-action to comment`;
+        const prompt = `Imagine you're a witty, relatable person on Twitter writing a short, engaging community post about "${topic}". Keep it casual and fun — use 1-2 emojis, a conversational tone, and add 1-2 relevant hashtags. Make it feel personal, like you're talking to your followers. End with a question or call-to-action that encourages replies. Keep it between 50–150 characters.`;
 
         const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",
@@ -34,7 +34,7 @@ export async function generateGeminiImage(
   outputPath  = path.join("public/images", "gemini-generated-image.png")
 ) {
   try { 
-    const imagePrompt = `Create an engaging visual representation of  ${prompt} as a meme or funny content`;
+    const imagePrompt = `Create a fun and visually engaging image that represents "${prompt}" in a meme-style or humorous format. Use vibrant colors, a playful tone, and make sure it grabs attention quickly — like something you'd see shared widely on social media. The image should be creative, funny, or clever, and make people want to comment or share.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash-exp-image-generation",
