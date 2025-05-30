@@ -63,6 +63,10 @@ Agent X enhances your tweet with an image (e.g., meme, infographic-style) based 
 | AI Provider  | Gemini API (Text + Image)      |
 | Integration  | Twitter API (v1 + v2)          |
 
+---
 
+## 🎥 Video Demo
+
+[ Check Out Now ](https://www.linkedin.com/posts/sumit-kushwaha-4a1344254_agent-xis-an-ai-powered-chrome-extension-activity-7333665914988511232-4NnP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD6yxbkBacsZo7lxj1ccsSgJrMLVTmqpaK8)
 
 
